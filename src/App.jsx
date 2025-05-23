@@ -1,13 +1,13 @@
-import { useState } from 'react'
+import { Outlet } from 'react-router-dom'
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
-    <>
-      <h1>TP05</h1>
-    </>
-  )
-}
+    <div>
+      <main>
+        <Outlet/>
+      </main>
+    </div>
+  );
+};
 
-export default App
+export default App;
