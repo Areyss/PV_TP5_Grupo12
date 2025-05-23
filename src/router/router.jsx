@@ -13,7 +13,8 @@ export const router = createBrowserRouter([
             // {path: 'alumnos/', element: </>},
             // {path: 'alumnos/:id/editar', element: </>}, 
             {path: 'alumnos/:id', element: <DetalleAlumno/>},
-            // {path: 'agregarAlumno/', element: </>}
+            // {path: 'nuevoAlumno/', element: </>},
+            // {path: 'about', element: </>},
             {path: '*', element: <ErrorPage/>}
         ]
     }
