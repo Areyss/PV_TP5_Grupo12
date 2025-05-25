@@ -1,0 +1,52 @@
+[
+  {
+    "lu": "1001",
+    "nombre": "Lucía",
+    "apellido": "Fernández",
+    "curso": "Algebra 1",
+    "email": "luciaf@gmail.com",
+    "domicilio": "Calle Arbolito",
+    "telefono": "3884252379",
+    "esta_cursando": true
+  },
+  {
+    "lu": "1002",
+    "nombre": "Mateo",
+    "apellido": "Pérez",
+    "curso": "Programación Estructurada",
+    "email": "mateop@gmail.com",
+    "domicilio": "Avenida Siempreviva",
+    "telefono": "3884234379",
+    "esta_cursando": true
+  },
+  {
+    "lu": "1003",
+    "nombre": "Sofía",
+    "apellido": "Garcia",
+    "curso": "Bases de Datos",
+    "email": "sofiag@gmail.com",
+    "domicilio": "Avenida Corrientes",
+    "telefono": "3884252304",
+    "esta_cursando": true
+  },
+  {
+    "lu": "1004",
+    "nombre": "Tomás",
+    "apellido": "López",
+    "curso": "Sistemas Operativos 2",
+    "email": "tomasl@gmail.com",
+    "domicilio": "Calle San Martín",
+    "telefono": "3880952304",
+    "esta_cursando": true
+  },
+  {
+    "lu": "1005",
+    "nombre": "Valentina",
+    "apellido": "Martínez",
+    "curso": "Redes 1",
+    "email": "valentinam@gmail.com",
+    "domicilio": "Calle Corrales",
+    "telefono": "3884394333",
+    "esta_cursando": true
+  }
+]
