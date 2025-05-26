@@ -1,13 +1,14 @@
 import { useOutletContext } from "react-router-dom";
 const ListAlumno = () => {
     const { alumnos } = useOutletContext();
+    console.log(alumnos);
     return (
         <div className="card-grid">
             {alumnos.length === 0 ? (
                 <p>No hay alumnos cargados.</p>
             ) : (
-                alumnos.map((alumno, i) => (
-                    <div className="card-container" key={i}>
+                alumnos.map((alumno) => (
+                    <div className="card-container" key={alumno.lu}>
                         <h3>{alumno.nombre} {alumno.apellido}</h3>
                         <p><strong>LU:</strong> {alumno.lu}</p>
                         <p><strong>Curso:</strong> {alumno.curso}</p>
