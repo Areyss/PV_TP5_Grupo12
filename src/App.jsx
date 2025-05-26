@@ -5,6 +5,7 @@ import { useState } from 'react';
 import alumnosPorDefecto from './data/alumnos.json';
 import './style/estiloBasico.css'
 const App = () => {
+  //Array para almacenar a los alumnos
   const [alumnos, setAlumnos] = useState(alumnosPorDefecto);
 
   return (
@@ -15,7 +16,7 @@ const App = () => {
         <NavBar />
       </header>
       <main>
-        <Outlet context={{alumnos}}/>
+        <Outlet context={{alumnos, setAlumnos}}/>
       </main>
       <footer>
         <p>© 2025 Facultad de Ingeniería - UNJu</p>
