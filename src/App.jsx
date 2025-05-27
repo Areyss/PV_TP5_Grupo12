@@ -3,7 +3,7 @@ import NavBar from './components/NavBar';
 import { useState } from 'react';
 
 import alumnosPorDefecto from './data/alumnos.json';
-import './style/estiloBasico.css'
+// import './style/estiloBasico.css'
 const App = () => {
   //Array para almacenar a los alumnos
   const [alumnos, setAlumnos] = useState(alumnosPorDefecto);
