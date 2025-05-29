@@ -159,8 +159,7 @@ form input:focus {
   height: 16px;
 }
 
-button[type="submit"] {
-  margin-top: 20px;
+/* button[type="submit"] {
   padding: 10px 20px;
   background-color: #28a745;
   border: none;
@@ -172,7 +171,6 @@ button[type="submit"] {
   width: 100%;
 }
 button[type="button"] {
-  margin-top: 20px;
   padding: 10px 20px;
   background-color: #28a745;
   border: none;
@@ -186,4 +184,4 @@ button[type="button"] {
 
 button[type="submit"]:hover {
   background-color: #218838;
-}
+} */

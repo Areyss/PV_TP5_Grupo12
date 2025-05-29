@@ -1,4 +1,4 @@
-import { useOutletContext } from "react-router-dom";
+import { useOutletContext, Link } from "react-router-dom";
 const ListAlumno = () => {
     const { alumnos } = useOutletContext();
     console.log(alumnos);
@@ -20,7 +20,7 @@ const ListAlumno = () => {
                             {alumno.esta_cursando ? "Cursando actualmente" : "No cursando"}
                         </p>
                         <div className="buttons-container">
-                            <button>Ver detalles</button>
+                            <Link to={`/alumnos/${alumno.lu}`}><button>Ver detalles</button></Link>                            
                             <button>Editar</button>
                             <button>Eliminar</button>
                         </div>

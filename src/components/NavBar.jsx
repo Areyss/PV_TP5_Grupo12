@@ -4,19 +4,22 @@ import {
   useColorModeValue,
 } from "@/components/ui/color-mode"
 const NavBar = () => {
-  const activeColor = useColorModeValue("teal.600", "teal.200");
-  const hoverColor = useColorModeValue("teal.700", "teal.300");
-
+  const navBg = useColorModeValue('#A0C878', '#720455');
+  const activeColor = useColorModeValue('#DDEB9D', '#030637');
+  const hoverColor = useColorModeValue('#DDEB9D', '#030637');
+  const textColor = useColorModeValue('white', '#E9ECEF');
   return (
-    <Box bg={useColorModeValue("gray.50", "gray.900")} px={4} boxShadow="sm">
+    <Box bg={navBg} px={4}>
       <Flex h={16} alignItems="center" justifyContent="center" maxW="1200px" mx="auto">
-        <HStack as="nav" spacing={8}>
+        <HStack as="nav" spacing={8} color={textColor}>
           <Link
             as={RouterLink}
             to="/"
-            p={2}
+            p={3}
             fontSize="lg"
             fontWeight="medium"
+            focusRingWidth="0px"
+            color={textColor}
             _activeLink={{
               color: activeColor,
               borderBottom: "2px solid",
@@ -24,6 +27,11 @@ const NavBar = () => {
             _hover={{
               textDecoration: "none",
               color: hoverColor,
+              // bg: activeColor,
+            }}
+            _focus={{ 
+              color: activeColor,
+              borderBottom: "2px solid",      
             }}
           >
             Inicio
@@ -34,6 +42,8 @@ const NavBar = () => {
             p={2}
             fontSize="lg"
             fontWeight="medium"
+            focusRingWidth="0px"
+            color={textColor}
             _activeLink={{
               color: activeColor,
               borderBottom: "2px solid",
@@ -41,6 +51,10 @@ const NavBar = () => {
             _hover={{
               textDecoration: "none",
               color: hoverColor,
+            }}
+            _focus={{ 
+              color: activeColor,
+              borderBottom: "2px solid",      
             }}
           >
             Lista de Alumnos
@@ -51,6 +65,8 @@ const NavBar = () => {
             p={2}
             fontSize="lg"
             fontWeight="medium"
+            focusRingWidth="0px"
+            color={textColor}
             _activeLink={{
               color: activeColor,
               borderBottom: "2px solid",
@@ -58,6 +74,10 @@ const NavBar = () => {
             _hover={{
               textDecoration: "none",
               color: hoverColor,
+            }}
+            _focus={{ 
+              color: activeColor,
+              borderBottom: "2px solid",      
             }}
           >
             Nuevo Alumno
@@ -68,6 +88,8 @@ const NavBar = () => {
             p={2}
             fontSize="lg"
             fontWeight="medium"
+            focusRingWidth="0px"
+            color={textColor}
             _activeLink={{
               color: activeColor,
               borderBottom: "2px solid",
@@ -75,6 +97,10 @@ const NavBar = () => {
             _hover={{
               textDecoration: "none",
               color: hoverColor,
+            }}
+            _focus={{ 
+              color: activeColor,
+              borderBottom: "2px solid",      
             }}
           >
             Acerca de

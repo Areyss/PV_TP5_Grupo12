@@ -1,11 +1,13 @@
 import { Link as RouterLink } from "react-router-dom";
 import { Heading, Text, Box, VStack, List, HStack, Button } from "@chakra-ui/react";
-
+import {
+  useColorModeValue,
+} from "@/components/ui/color-mode"
 const Home = () => {
   return (
     <Box p={6} maxW="800px" mx="auto">
       <VStack spacing={5} align="stretch">
-        <Heading as="h2" size="3xl" color="teal.600" mb={4}>
+        <Heading as="h2" size="3xl" color= {useColorModeValue('#A0C878', '#720455')} mb={4}>
           Bienvenidos al Sistema de Gestión de Alumnos
         </Heading>
 
@@ -23,7 +25,7 @@ const Home = () => {
           <Button 
             as={RouterLink} 
             to="/alumnos" 
-            colorScheme="teal" 
+            bg={useColorModeValue('#A0C878', '#720455')} 
             size="lg"
           >
             Ver Lista de Alumnos
@@ -39,7 +41,7 @@ const Home = () => {
           </Button>
         </HStack>
 
-        <Heading as="h2" size="lg" color="teal.600" mb={4}>
+        <Heading as="h2" size="lg" color= {useColorModeValue('#A0C878', '#720455')} mb={4}>
           📰 Avisos recientes
         </Heading>
         
