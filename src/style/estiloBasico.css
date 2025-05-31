@@ -64,6 +64,7 @@ nav a:hover {
 } */ */
 
 /* Estilos para la lista de alumnos */
+/*
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -117,22 +118,21 @@ nav a:hover {
 .buttons-container button:hover {
   background-color: #0056b3;
 }
-
+*/
 /*Estilos para el formulario de alumno*/
+
 .form-container {
-  max-width: 500px;
-  margin: 30px auto;
-  background-color: #fefefe;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-  border: 1px solid #ddd;
+  max-width: 200px;
+  width: 100%;
+  margin: 80px ;
+  padding: 24px;
+ 
 }
 
 form label {
   display: block;
   font-weight: 600;
-  color: #333;
+
 }
 
 form input {
@@ -145,20 +145,10 @@ form input {
   transition: border-color 0.2s ease;
 }
 
-form input:focus {
-  outline: none;
-  border-color: #007bff;
-  box-shadow: 0 0 3px #aad4ff;
+.error-span{
+  color: rgb(204, 74, 74);
 }
-
-.error-span {
-  color: red;
-  font-size: 0.8em;
-  display: block;
-  margin-top: 4px;
-  height: 16px;
-}
-
+/*
 /* button[type="submit"] {
   padding: 10px 20px;
   background-color: #28a745;
