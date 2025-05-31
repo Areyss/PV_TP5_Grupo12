@@ -1,8 +1,15 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import {
+    Box,
+    Input,
+    Button,
+    Stack,
+    Text,
+} from "@chakra-ui/react";
+import { useColorModeValue } from "@/components/ui/color-mode"
 
-
-function AlumnoForm({onAdd}) {
+function AlumnoForm({ onAdd }) {
     const navigate = useNavigate();
 
     const [alumno, setAlumno] = useState({
@@ -54,100 +61,120 @@ function AlumnoForm({onAdd}) {
 
         navigate('/alumnos');
     };
+    const inputBg = useColorModeValue("gray.50", "gray.700");
+    const inputBorder = useColorModeValue("gray.300", "gray.600");
+    const errorColor = "red.500";
 
     return (
-        <div className='form-container'>
+        <Box className='form-container' maxW="xl" mx="auto">
             <form onSubmit={handleSubmit}>
-                <label>
-                    LU:
-                    <input
-                        type="number"
-                        name="lu"
-                        placeholder="LU"
-                        value={alumno.lu}
-                        onChange={handleChange}
-                    />
-                    <span className='error-span'></span>
-                </label>
+                <Stack spacing={4}>
+                    <Box>
+                        <label>
+                            LU: 
+                            <input
+                                type="number"
+                                name="lu"
+                                placeholder="LU"
+                                value={alumno.lu}
+                                onChange={handleChange}
+                            />
+                            <span className='error-span'></span>
+                        </label>
+                    </Box>
 
-                <br />
+                    <Box>
+                        <label>
+                            Nombre:
+                            <input
+                                type="text"
+                                name="nombre"
+                                placeholder="Nombre"
+                                value={alumno.nombre}
+                                onChange={handleChange}
+                            />
+                            <span className='error-span'></span>
+                        </label>
+                    </Box>
 
-                <label>
-                    Nombre:
-                    <input
-                        type="text"
-                        name="nombre"
-                        placeholder="Nombre"
-                        value={alumno.nombre}
-                        onChange={handleChange}
-                    />
-                    <span className='error-span'></span>
-                </label><br />
+                    <Box>
+                        <label>
+                            Apellido:
+                            <input
+                                type="text"
+                                name="apellido"
+                                placeholder="Apellido"
+                                value={alumno.apellido}
+                                onChange={handleChange}
+                            />
+                            <span className='error-span'></span>
+                        </label>
+                    </Box>
 
-                <label>
-                    Apellido:
-                    <input
-                        type="text"
-                        name="apellido"
-                        placeholder="Apellido"
-                        value={alumno.apellido}
-                        onChange={handleChange}
-                    />
-                    <span className='error-span'></span>
-                </label><br />
+                    <Box>
+                        <label>
+                            Curso:
+                            <input
+                                type="text"
+                                name="curso"
+                                placeholder="Curso"
+                                value={alumno.curso}
+                                onChange={handleChange}
+                            />
+                            <span className='error-span'></span>
+                        </label>
+                    </Box>
 
-                <label>
-                    Curso:
-                    <input
-                        type="text"
-                        name="curso"
-                        placeholder="Curso"
-                        value={alumno.curso}
-                        onChange={handleChange}
-                    />
-                    <span className='error-span'></span>
-                </label><br />
+                    <Box>
+                        <label>
+                            Email:
+                            <input
+                                type="email"
+                                name="email"
+                                placeholder="Email"
+                                value={alumno.email}
+                                onChange={handleChange}
+                            />
+                            <span className='error-span'></span>
+                        </label>
+                    </Box>
 
-                <label>
-                    Email:
-                    <input
-                        type="email"
-                        name="email"
-                        placeholder="Email"
-                        value={alumno.email}
-                        onChange={handleChange}
-                    />
-                    <span className='error-span'></span>
-                </label><br />
+                    <Box>
+                        <label>
+                            Domicilio:
+                            <input
+                                type="text"
+                                name="domicilio"
+                                placeholder="Domicilio"
+                                value={alumno.domicilio}
+                                onChange={handleChange}
+                            />
+                            <span className='error-span'></span>
+                        </label>
+                    </Box>
 
-                <label>
-                    Domicilio:
-                    <input
-                        type="text"
-                        name="domicilio"
-                        placeholder="Domicilio"
-                        value={alumno.domicilio}
-                        onChange={handleChange}
-                    />
-                    <span className='error-span'></span>
-                </label><br />
+                    <Box>
+                        <label>
+                            Teléfono:
+                            <input
+                                type="number"
+                                name="telefono"
+                                placeholder="Teléfono"
+                                value={alumno.telefono}
+                                onChange={handleChange}
+                            />
+                            <span className='error-span'></span>
+                        </label>
+                    </Box>
 
-                <label>
-                    Teléfono:
-                    <input
-                        type="number"
-                        name="telefono"
-                        placeholder="Teléfono"
-                        value={alumno.telefono}
-                        onChange={handleChange}
-                    />
-                    <span className='error-span'></span>
-                </label><br />
-
-                <button type="submit">Agregar Alumno</button>
+                    <Button type="submit"  color="white" bg={useColorModeValue("blue.600", "blue.600")} mt={4}>
+                        Agregar Alumno
+                    </Button>
+                </Stack>
             </form>
-        </div>
+        </Box>
     );
 }
+
 
 export default AlumnoForm;

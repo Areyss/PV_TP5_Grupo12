@@ -5,6 +5,7 @@ import DetalleAlumno from "../views/DetalleAlumno";
 import NuevoAlumno from "../views/NuevoAlumno";
 import ErrorPage from "../views/ErrorPage";
 import ListAlumno from "../components/AlumnoList";
+import AlumnoForm from "@/components/AlumnoForm";
 
 export const router = createBrowserRouter([
     {
@@ -13,7 +14,7 @@ export const router = createBrowserRouter([
         children:[
             {index: true, element: <Home/>},
             {path: 'alumnos/', element: <ListAlumno/>},
-            // {path: 'alumnos/:id/editar', element: </>}, 
+            {path: 'alumnos/editar/:lu', element: <AlumnoForm/>}, 
             {path: 'alumnos/:lu', element: <DetalleAlumno/>},
             {path: 'nuevoAlumno/', element: <NuevoAlumno />},
             // {path: 'about', element: </>},
