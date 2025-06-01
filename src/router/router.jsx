@@ -5,7 +5,7 @@ import DetalleAlumno from "../views/DetalleAlumno";
 import NuevoAlumno from "../views/NuevoAlumno";
 import ErrorPage from "../views/ErrorPage";
 import ListAlumno from "../components/AlumnoList";
-import AlumnoForm from "@/components/AlumnoForm";
+import AboutUs from "@/views/AboutUs";
 
 export const router = createBrowserRouter([
     {
@@ -17,7 +17,7 @@ export const router = createBrowserRouter([
             {path: 'alumnos/editar/:lu', element: <NuevoAlumno/>}, 
             {path: 'alumnos/:lu', element: <DetalleAlumno/>},
             {path: 'nuevoAlumno/', element: <NuevoAlumno />},
-            // {path: 'about', element: </>},
+            {path: 'about', element: <AboutUs />},
             {path: '*', element: <ErrorPage/>}
         ]
     }

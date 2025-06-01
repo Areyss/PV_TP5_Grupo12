@@ -42,6 +42,7 @@ const ListAlumno = () => {
                             borderColor={useColorModeValue("gray.300", "gray.600")}
                             bg={useColorModeValue("gray.100", "gray.700")}
                             boxShadow="md"
+                            _hover={{ transform: "scale(1.01)", shadow: "xl" }}
                         >
                             <Heading as="h3" size="lg" mb={3}>
                                 {alumno.nombre} {alumno.apellido}
