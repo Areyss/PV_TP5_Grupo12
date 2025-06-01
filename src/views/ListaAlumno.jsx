@@ -1,9 +1,9 @@
-import ListAlumno from "../components/AlumnoList";
+import AlumnoList from "../components/AlumnoList";
 const ListaAlumno = () => {
 
     return (
         <div className="lista-alumnos">
-            <ListAlumno />
+            <AlumnoList />
         </div>
     );
 };
