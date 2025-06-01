@@ -1,18 +1,25 @@
 import AlumnoForm from "../components/AlumnoForm";
-import { useOutletContext } from "react-router-dom";
+import { useOutletContext, useParams } from "react-router-dom";
 
 const NuevoAlumno = () => {
-    const {alumnos, setAlumnos} = useOutletContext();
+  const { alumnos, setAlumnos } = useOutletContext();
 
-    const addAlumno = (nuevoAlumno) => {
-        setAlumnos([...alumnos, nuevoAlumno]);
-    };
+  const addAlumno = (nuevoAlumno) => {
+    setAlumnos([...alumnos, nuevoAlumno]);
+  };
 
-    return (
-        <div className="formulario-alumno">
-            <AlumnoForm onAdd={addAlumno}/>
-        </div>
+  const updateAlumno = (alumnoActualizado) => {
+    const nuevosAlumnos = alumnos.map(al =>
+      Number(al.lu) === Number(alumnoActualizado.lu) ? alumnoActualizado : al
     );
+    setAlumnos(nuevosAlumnos);
+  };
+
+  return (
+    <div className="formulario-alumno">
+      <AlumnoForm onAdd={addAlumno} onEdit={updateAlumno} />
+    </div>
+  );
 };
 
 export default NuevoAlumno;

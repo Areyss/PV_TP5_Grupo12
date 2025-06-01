@@ -1,16 +1,13 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import {
-    Box,
-    Input,
-    Button,
-    Stack,
-    Text,
-} from "@chakra-ui/react";
+import { useState, useEffect } from 'react';
+import { useNavigate, useParams, useOutletContext } from 'react-router-dom';
+import { Box, Button, Stack } from "@chakra-ui/react";
 import { useColorModeValue } from "@/components/ui/color-mode"
 
-function AlumnoForm({ onAdd }) {
+function AlumnoForm({ onAdd, onEdit }) {
+    const { alumnos } = useOutletContext();
+
     const navigate = useNavigate();
+    const { lu } = useParams();
 
     const [alumno, setAlumno] = useState({
         lu: '',
@@ -22,6 +19,13 @@ function AlumnoForm({ onAdd }) {
         telefono: '',
         esta_cursando: true
     });
+
+    useEffect(() => {
+        if (lu && alumnos) {
+            const existente = alumnos.find(a => Number(a.lu) === Number(lu));
+            if (existente) setAlumno(existente);
+        }
+    }, [lu, alumnos]);
 
     const handleChange = (e) => {
         const field = e.target;
@@ -47,7 +51,18 @@ function AlumnoForm({ onAdd }) {
             alert('Por favor, completá todos los campos.');
             return;
         }
-        onAdd(alumno);
+
+        if (!lu && alumnos.find(a => Number(a.lu) === Number(alumno.lu))) {
+            alert("Ya existe un alumno con ese LU.");
+            return;
+        }
+
+        if (lu) {
+            onEdit(alumno); // actualiza
+        } else {
+            onAdd(alumno); // agrega nuevo
+        }
+
         setAlumno({
             lu: '',
             nombre: '',
@@ -71,13 +86,14 @@ function AlumnoForm({ onAdd }) {
                 <Stack spacing={4}>
                     <Box>
                         <label>
-                            LU: 
+                            LU:
                             <input
                                 type="number"
                                 name="lu"
                                 placeholder="LU"
                                 value={alumno.lu}
                                 onChange={handleChange}
+                                disabled={lu}
                             />
                             <span className='error-span'></span>
                         </label>
@@ -167,9 +183,26 @@ function AlumnoForm({ onAdd }) {
                         </label>
                     </Box>
 
-                    <Button type="submit"  color="white" bg={useColorModeValue("blue.600", "blue.600")} mt={4}>
-                        Agregar Alumno
+                    <Button
+                        type="submit"
+                        color="white"
+                        bg={useColorModeValue("blue.600", "blue.600")}
+                        _hover={{ bg: useColorModeValue("blue.700", "blue.700") }}
+                    >
+                        {lu ? "Guardar Cambios" : "Agregar Alumno"}
                     </Button>
+
+                    {lu && (
+                        <Button
+                            type="button"
+                            color="white"
+                            onClick={() => navigate("/alumnos")}
+                            bg={useColorModeValue("red.600", "red.600")}
+                            _hover={{ bg: useColorModeValue("red.700", "red.700") }}
+                        >
+                            Cancelar
+                        </Button>
+                    )}
                 </Stack>
             </form>
         </Box>

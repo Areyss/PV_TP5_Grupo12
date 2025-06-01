@@ -32,7 +32,7 @@ const ListAlumno = () => {
                     No hay alumnos cargados.
                 </Text>
             ) : (
-                <SimpleGrid columns={{xl: 3, md:2}} gap="40px">
+                <SimpleGrid columns={{ xl: 3, md: 2 }} gap="40px">
                     {alumnos.map((alumno) => (
                         <Box
                             key={alumno.lu}
@@ -70,14 +70,16 @@ const ListAlumno = () => {
                                         Ver detalles
                                     </Button>
                                 </Link>
-                                <Button
-                                    size="sm"
-                                    bg={useColorModeValue("yellow.400", "yellow.400")}
-                                    _hover={{ bg: useColorModeValue("yellow.600", "yellow.600") }}
-                                    color="white"
-                                >
-                                    Editar
-                                </Button>
+                                <Link to={`/alumnos/editar/${alumno.lu}`}>
+                                    <Button
+                                        size="sm"
+                                        bg="yellow.400"
+                                        _hover={{ bg: "yellow.600" }}
+                                        color="white"
+                                    >
+                                        Editar
+                                    </Button>
+                                </Link>
                                 <Button
                                     size="sm"
                                     bg={useColorModeValue("red.600", "red.600")}
