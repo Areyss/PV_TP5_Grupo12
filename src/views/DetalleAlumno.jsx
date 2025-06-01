@@ -12,13 +12,13 @@ import {
   Flex,
   Center
 } from '@chakra-ui/react';
-import {
-  useColorModeValue,
-} from "@/components/ui/color-mode"
+import { useColorModeValue } from "@/components/ui/color-mode"
 import BackButton from '@/components/BackButton';
+import DeleteButton from '@/components/DeleteButton';
+
 const DetalleAlumno = () => {
   const { lu } = useParams();
-  const { alumnos } = useOutletContext();
+  const { alumnos, setAlumnos } = useOutletContext();
   const primaryColor = useColorModeValue('#A0C878', '#720455');
 
   const alumno = alumnos.find((a) => a.lu === lu);
@@ -86,9 +86,7 @@ const DetalleAlumno = () => {
         </Card.Body>
         <Card.Footer justifyContent="flex-end">
           <Button >Editar</Button>
-          <Button variant="outline">
-            Eliminar
-          </Button>
+          <DeleteButton alumno={alumno} setAlumnos={setAlumnos}/>
           <BackButton />
         </Card.Footer>
       </Card.Root>

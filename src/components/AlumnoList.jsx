@@ -9,9 +9,12 @@ import {
     SimpleGrid,
 } from "@chakra-ui/react";
 import { useColorModeValue } from "@/components/ui/color-mode"
+import DeleteButton from "./DeleteButton";
 
 const ListAlumno = () => {
-    const { alumnos } = useOutletContext();
+    const { alumnos , setAlumnos} = useOutletContext();
+    const alumnosVisibles = alumnos.filter(alumno => alumno.esta_cursando);
+    
 
     return (
         <Box p={6}>
@@ -24,7 +27,7 @@ const ListAlumno = () => {
                 Bienvenidos al Sistema de Gestión de Alumnos
             </Heading>
 
-            {alumnos.length === 0 ? (
+            {alumnosVisibles.length === 0 ? (
                 <Text
                     fontSize="xl"
                     color={useColorModeValue("gray.700", "gray.300")}
@@ -33,7 +36,7 @@ const ListAlumno = () => {
                 </Text>
             ) : (
                 <SimpleGrid columns={{ xl: 3, md: 2 }} gap="40px">
-                    {alumnos.map((alumno) => (
+                    {alumnosVisibles.map((alumno) => (
                         <Box
                             key={alumno.lu}
                             p={6}
@@ -81,14 +84,7 @@ const ListAlumno = () => {
                                         Editar
                                     </Button>
                                 </Link>
-                                <Button
-                                    size="sm"
-                                    bg={useColorModeValue("red.600", "red.600")}
-                                    _hover={{ bg: useColorModeValue("red.700", "red.700") }}
-                                    color="white"
-                                >
-                                    Eliminar
-                                </Button>
+                                <DeleteButton alumno={alumno} setAlumnos={setAlumnos}/>
                             </Flex>
                         </Box>
                     ))}
