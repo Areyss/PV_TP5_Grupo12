@@ -12,10 +12,12 @@ import { useColorModeValue } from "@/components/ui/color-mode"
 import DeleteButton from "./DeleteButton";
 
 const ListAlumno = () => {
+    // Obtenemos el array de alumnos y la funcion para actualizarlo
     const { alumnos , setAlumnos} = useOutletContext();
+
+    // Filtra solo los alumnos que están actualmente cursando (visible)
     const alumnosVisibles = alumnos.filter(alumno => alumno.esta_cursando);
     
-
     return (
         <Box p={6}>
             <Heading
@@ -32,6 +34,7 @@ const ListAlumno = () => {
                     fontSize="xl"
                     color={useColorModeValue("gray.700", "gray.300")}
                 >
+                    {/* Si no hay alumnos visibles, muestra un mensaje */}
                     No hay alumnos cargados.
                 </Text>
             ) : (
