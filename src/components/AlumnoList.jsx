@@ -10,14 +10,18 @@ import {
 } from "@chakra-ui/react";
 import { useColorModeValue } from "@/components/ui/color-mode"
 import DeleteButton from "./DeleteButton";
+import { useAppColors } from "@/theme/colors";
 
 const ListAlumno = () => {
     const { alumnos , setAlumnos} = useOutletContext();
     const alumnosVisibles = alumnos.filter(alumno => alumno.esta_cursando);
-    
+    const alumnosBorrados = alumnos.filter(alumno => !alumno.esta_cursando);
+
+    const colors = useAppColors();
 
     return (
         <Box p={6}>
+            <Flex justify="space-between" align="center" mb={6}>
             <Heading
                 as="h2"
                 size="3xl"
@@ -26,7 +30,20 @@ const ListAlumno = () => {
             >
                 Bienvenidos al Sistema de Gestión de Alumnos
             </Heading>
-
+            {alumnosBorrados.length > 0 && (
+                <Box mb={6}>
+                    <Link to="/alumnos/papelera">
+                        <Button
+                            bg={colors.gray}
+                            _hover={{ bg: useColorModeValue("gray.600", "gray.700") }}
+                            color="white"
+                        >
+                            Ver Papelera
+                        </Button>
+                    </Link>
+                </Box>
+            )}
+            </Flex>
             {alumnosVisibles.length === 0 ? (
                 <Text
                     fontSize="xl"
