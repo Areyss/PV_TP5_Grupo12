@@ -1,17 +1,13 @@
 import { HStack, Link, Box, Flex } from "@chakra-ui/react";
 import { NavLink as RouterLink } from "react-router-dom";
-import {
-  useColorModeValue,
-} from "@/components/ui/color-mode"
+import { useAppColors } from "@/theme/colors";
 const NavBar = () => {
-  const navBg = useColorModeValue('#A0C878', '#720455');
-  const activeColor = useColorModeValue('#DDEB9D', '#030637');
-  const hoverColor = useColorModeValue('#DDEB9D', '#030637');
-  const textColor = useColorModeValue('white', '#E9ECEF');
+  const colors = useAppColors();
+
   return (
-    <Box bg={navBg} px={4}>
+    <Box bg={colors.primary} px={4}>
       <Flex h={16} alignItems="center" justifyContent="center" maxW="1200px" mx="auto">
-        <HStack as="nav" spacing={8} color={textColor}>
+        <HStack as="nav" spacing={8} color={colors.textPrimary}>
           <Link
             as={RouterLink}
             to="/"
@@ -19,18 +15,18 @@ const NavBar = () => {
             fontSize="lg"
             fontWeight="medium"
             focusRingWidth="0px"
-            color={textColor}
+            color={colors.textPrimary}
             _activeLink={{
-              color: activeColor,
+              color: colors.accent,
               borderBottom: "2px solid",
             }}
             _hover={{
               textDecoration: "none",
-              color: hoverColor,
-              // bg: activeColor,
+              color: colors.accent,
+              // bg: colors.accent,
             }}
             _focus={{ 
-              color: activeColor,
+              color: colors.accent,
               borderBottom: "2px solid",      
             }}
           >
@@ -43,17 +39,17 @@ const NavBar = () => {
             fontSize="lg"
             fontWeight="medium"
             focusRingWidth="0px"
-            color={textColor}
+            color={colors.textPrimary}
             _activeLink={{
-              color: activeColor,
+              color: colors.accent,
               borderBottom: "2px solid",
             }}
             _hover={{
               textDecoration: "none",
-              color: hoverColor,
+              color: colors.accent,
             }}
             _focus={{ 
-              color: activeColor,
+              color: colors.accent,
               borderBottom: "2px solid",      
             }}
           >
@@ -66,17 +62,17 @@ const NavBar = () => {
             fontSize="lg"
             fontWeight="medium"
             focusRingWidth="0px"
-            color={textColor}
+            color={colors.textPrimary}
             _activeLink={{
-              color: activeColor,
+              color: colors.accent,
               borderBottom: "2px solid",
             }}
             _hover={{
               textDecoration: "none",
-              color: hoverColor,
+              color: colors.accent,
             }}
             _focus={{ 
-              color: activeColor,
+              color: colors.accent,
               borderBottom: "2px solid",      
             }}
           >
@@ -89,17 +85,17 @@ const NavBar = () => {
             fontSize="lg"
             fontWeight="medium"
             focusRingWidth="0px"
-            color={textColor}
+            color={colors.textPrimary}
             _activeLink={{
-              color: activeColor,
+              color: colors.accent,
               borderBottom: "2px solid",
             }}
             _hover={{
               textDecoration: "none",
-              color: hoverColor,
+              color: colors.accent,
             }}
             _focus={{ 
-              color: activeColor,
+              color: colors.accent,
               borderBottom: "2px solid",      
             }}
           >

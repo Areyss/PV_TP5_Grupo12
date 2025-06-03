@@ -8,11 +8,13 @@ import {
     Flex,
     SimpleGrid,
 } from "@chakra-ui/react";
-import { useColorModeValue } from "@/components/ui/color-mode";
+import { useAppColors } from "@/theme/colors";
 
 const PapeleraAlumnos = () => {
     const { alumnos, setAlumnos } = useOutletContext();
     const alumnosBorrados = alumnos.filter(alumno => !alumno.esta_cursando);
+
+    const colors = useAppColors();
 
     const handleRestaurar = (lu) => {
         setAlumnos(prevAlumnos =>
@@ -27,13 +29,13 @@ const PapeleraAlumnos = () => {
             <Heading
                 as="h2"
                 size="2xl"
-                color={useColorModeValue("gray.700", "gray.200")}
+                color={colors.primary}
                 mb={8}
             >
                 Papelera de Alumnos
             </Heading>
             {alumnosBorrados.length === 0 ? (
-                <Text fontSize="xl" color={useColorModeValue("gray.700", "gray.300")}>
+                <Text fontSize="xl" color={colors.gray}>
                     No hay alumnos en la papelera.
                 </Text>
             ) : (
@@ -44,8 +46,8 @@ const PapeleraAlumnos = () => {
                             p={6}
                             borderWidth="1px"
                             borderRadius="md"
-                            borderColor={useColorModeValue("gray.300", "gray.600")}
-                            bg={useColorModeValue("gray.100", "gray.700")}
+                            borderColor={colors.secondary}
+                            bg={colors.bgPrimary}
                             boxShadow="md"
                         >
                             <Heading as="h3" size="lg" mb={3}>
@@ -59,8 +61,8 @@ const PapeleraAlumnos = () => {
                             <Flex gap={3}>
                                 <Button
                                     size="sm"
-                                    bg={useColorModeValue("blue.600", "blue.600")}
-                                    _hover={{ bg: useColorModeValue("blue.700", "blue.700") }}
+                                    bg={colors.primary}
+                                    _hover={{ bg: colors.primaryHover }}
                                     color="white"
                                     onClick={() => handleRestaurar(alumno.lu)}
                                 >

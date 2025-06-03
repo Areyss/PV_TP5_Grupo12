@@ -38,7 +38,7 @@ const ListAlumno = () => {
                             _hover={{ bg: useColorModeValue("gray.600", "gray.700") }}
                             color="white"
                         >
-                            Ver Papelera
+                            Ver Papelera 🗑️
                         </Button>
                     </Link>
                 </Box>
