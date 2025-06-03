@@ -1,14 +1,16 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams, useOutletContext } from 'react-router-dom';
-import { Box, Button, Stack } from "@chakra-ui/react";
+import { Box, Button, Stack, Alert } from "@chakra-ui/react";
 import { useColorModeValue } from "@/components/ui/color-mode"
 
 function AlumnoForm({ onAdd, onEdit }) {
+    // Obtenemos la lista de alumnos
     const { alumnos } = useOutletContext();
 
-    const navigate = useNavigate();
-    const { lu } = useParams();
+    const navigate = useNavigate(); // Para redireccionar
+    const { lu } = useParams(); // Obtener LU desde la URL
 
+    // Estado defult del formulario
     const [alumno, setAlumno] = useState({
         lu: '',
         nombre: '',
@@ -20,6 +22,7 @@ function AlumnoForm({ onAdd, onEdit }) {
         esta_cursando: true
     });
 
+    // Si se pasa un LU, busca al alumno y lo carga en el formulario
     useEffect(() => {
         if (lu && alumnos) {
             const existente = alumnos.find(a => Number(a.lu) === Number(lu));
@@ -27,11 +30,13 @@ function AlumnoForm({ onAdd, onEdit }) {
         }
     }, [lu, alumnos]);
 
+    // Maneja los cambios en los inputs
     const handleChange = (e) => {
         const field = e.target;
         const fieldValue = field.value;
         const spanTag = field.nextElementSibling;
 
+        // Muestra el mensaje de error en el span del form
         if (fieldValue === "") {
             spanTag.innerText = "Este campo es obligatorio";
         } else {
@@ -44,25 +49,31 @@ function AlumnoForm({ onAdd, onEdit }) {
         }));
     };
 
+    // Validación y envío del formulario
     const handleSubmit = (e) => {
         e.preventDefault();
         const camposObligatorios = ['lu', 'nombre', 'apellido', 'curso', 'email', 'domicilio', 'telefono'];
+        
+        // Validar que no falten campos
         if (camposObligatorios.some(campo => alumno[campo].trim() === '')) {
             alert('Por favor, completá todos los campos.');
             return;
         }
 
+        // Validar que el LU no esté repetido al agregar
         if (!lu && alumnos.find(a => Number(a.lu) === Number(alumno.lu))) {
-            alert("Ya existe un alumno con ese LU.");
+            //alert("Ya existe un alumno con ese LU.");
             return;
         }
 
+        // Editar o agregar alumno según el caso
         if (lu) {
             onEdit(alumno); // actualiza
         } else {
             onAdd(alumno); // agrega nuevo
         }
 
+        // Limpiar formulario y redirige al listado de alumnos
         setAlumno({
             lu: '',
             nombre: '',
@@ -93,7 +104,7 @@ function AlumnoForm({ onAdd, onEdit }) {
                                 placeholder="LU"
                                 value={alumno.lu}
                                 onChange={handleChange}
-                                disabled={lu}
+                                disabled={lu} // si se está editando, no se puede modificar el LU
                             />
                             <span className='error-span'></span>
                         </label>
@@ -205,6 +216,21 @@ function AlumnoForm({ onAdd, onEdit }) {
                     )}
                 </Stack>
             </form>
+
+            {!lu && alumnos.find(a => Number(a.lu) === Number(alumno.lu)) && (
+                <Box margin={5}>
+                    <Alert.Root status="error">
+                        <Alert.Indicator />
+                        <Alert.Content>
+                            <Alert.Title fontFamily={'sans-serif'}>No es posible agregar al alumno</Alert.Title>
+                            <Alert.Description >
+                                Ese alumno ya se encuentra en el sistema, ingrese otra LU.
+                            </Alert.Description>
+                        </Alert.Content>
+                    </Alert.Root>
+                </Box>
+            )}
+
         </Box>
     );
 }
