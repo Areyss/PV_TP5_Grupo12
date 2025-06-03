@@ -12,14 +12,14 @@ import {
   Flex,
   Center
 } from '@chakra-ui/react';
-import { useColorModeValue } from "@/components/ui/color-mode"
 import BackButton from '@/components/BackButton';
 import DeleteButton from '@/components/DeleteButton';
+import { useAppColors } from '@/theme/colors';
 
 const DetalleAlumno = () => {
   const { lu } = useParams();
   const { alumnos, setAlumnos } = useOutletContext();
-  const primaryColor = useColorModeValue('#A0C878', '#720455');
+  const colors = useAppColors();
 
   const alumno = alumnos.find((a) => a.lu === lu);
 
@@ -37,7 +37,7 @@ const DetalleAlumno = () => {
   return (
     <Center>
       <Card.Root p={10} width="65%" alignSelf="center">
-        <Card.Header pb={4} borderBottom="2px solid" color={primaryColor}>
+        <Card.Header pb={4} borderBottom="2px solid" color={colors.primary}>
           <Heading size="3xl" >
             Detalles del Alumno
           </Heading>
@@ -51,13 +51,13 @@ const DetalleAlumno = () => {
                 <Avatar.Fallback name={`${alumno.nombre} ${alumno.apellido}`} />
               </Avatar.Root>
               <Card.Title mt="5">
-                <Text fontWeight="bold" textStyle="3xl" color={primaryColor}>
+                <Text fontWeight="bold" textStyle="3xl" color={colors.primary}>
                   {alumno.nombre} {alumno.apellido}
                 </Text>                
               </Card.Title>
             </Stack>
 
-            <VStack align="start" gap="4" borderLeft={`2px solid ${primaryColor}`} pl="20px" width="60%" >
+            <VStack align="start" gap="4" borderLeft={`2px solid ${colors.primary}`} pl="20px" width="60%" >
               <Text fontWeight="normal" textStyle="lg">
                 <strong>LU:</strong> {alumno.lu}
               </Text>

@@ -1,39 +1,41 @@
-import { Box, Heading, Text, Button, VStack } from "@chakra-ui/react";
+
+import { useAppColors } from "@/theme/colors"
+import { EmptyState, List, VStack, Text, Heading, Button } from "@chakra-ui/react"
+import { HiColorSwatch } from "react-icons/hi"
 import { Link } from "react-router-dom";
-import { useColorModeValue } from "@/components/ui/color-mode";
-
-const ErrorPage = () => {
-  const bgColor = useColorModeValue("gray.100", "gray.800");
-  const textColor = useColorModeValue("gray.600", "gray.300");
-  const headingColor = useColorModeValue("red.600", "red.600");
-
-  return (
-    <Box
-      minH="100vh"
-      display="flex"
-      alignItems="center"
-      justifyContent="center"
-      bg={bgColor}
-      px={4}
-    >
-      <VStack spacing={6} textAlign="center">
-        <Heading as="h1" size="4xl" color={headingColor}>
-          🚫 Error 404
-        </Heading>
-        <Text fontSize="xl" color={textColor}>
-          La página que buscas no existe o fue removida.
-        </Text>
-        <Text fontSize="lg" color={textColor}>
-          🔍 Verifica la URL o regresa al inicio.
-        </Text>
-        <Link to="/">
-          <Button colorScheme="teal" leftIcon={<span>🏠</span>}>
-            Volver al inicio
-          </Button>
-        </Link>
-      </VStack>
-    </Box>
-  );
-};
-
+const ErrorPage = () =>{
+    const colors = useAppColors();
+    return(
+        <EmptyState.Root size="lg" >
+            <EmptyState.Content>
+                <EmptyState.Indicator>
+                    <HiColorSwatch />
+                </EmptyState.Indicator>
+                <VStack textAlign="center">
+                    <EmptyState.Title><Heading as="h1" size="4xl" mb="10" color={colors.danger}>
+                        Error 404
+                    </Heading></EmptyState.Title>
+                    <EmptyState.Description>
+                        <Text fontSize="xl" >
+                            La página que buscas no existe o fue removida.
+                        </Text>
+                    </EmptyState.Description>
+                </VStack>
+                <List.Root variant="marker">
+                    <List.Item><Text fontSize="lg" >
+                        Verifica la URL.
+                    </Text></List.Item>
+                    <List.Item><Text fontSize="lg" >
+                        Regresa al inicio.
+                    </Text></List.Item>
+                    <Link to="/">
+                        <Button bg={colors.primary} color="white" _hover={{ bg: colors.primaryHover }} mt="5">
+                            Volver al inicio
+                        </Button>
+                    </Link>
+                </List.Root>
+            </EmptyState.Content>
+        </EmptyState.Root>
+    )
+}
 export default ErrorPage;

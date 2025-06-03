@@ -1,7 +1,9 @@
 
 import { Button, CloseButton, Dialog, Portal } from "@chakra-ui/react"
-import { useColorModeValue } from "@/components/ui/color-mode"
+import { useAppColors } from "@/theme/colors";
+
 const DeleteButton = ({ alumno, setAlumnos}) => {
+    const  colors  = useAppColors();
     const handleEliminar = (lu) => {
 
         setAlumnos(prevAlumnos =>
@@ -16,8 +18,8 @@ const DeleteButton = ({ alumno, setAlumnos}) => {
       <Dialog.Trigger asChild>
         <Button
             size="sm"
-            bg={useColorModeValue("red.600", "red.600")}
-            _hover={{ bg: useColorModeValue("red.700", "red.700") }}
+            bg={colors.danger}
+            _hover={{ bg: colors.dangerHover }}
             color="white"
         >
             Eliminar
@@ -42,6 +44,8 @@ const DeleteButton = ({ alumno, setAlumnos}) => {
               <Dialog.ActionTrigger asChild>
                 <Button 
                 as = "button"
+                bg={colors.danger}
+                _hover={{ bg: colors.dangerHover }}
                 onClick={() => handleEliminar(alumno.lu)}> Eliminar </Button>
               </Dialog.ActionTrigger>
               
