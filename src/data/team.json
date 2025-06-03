@@ -1,0 +1,20 @@
+[
+  {
+    "nombre": "Joel Brian Garcia 🧑🏻‍💻",
+    "descripcion": "Estudiante de la carrera Analista Programador Universitario apasionado por crear soluciones tecnológicas a problemas cotidianos. Este sistema de gestión de alumnos fue desarrollado utilizando lo aprendido en la cursada.",
+    "tareas": [
+      "📋 Listado de estudiantes",
+      "➕ Formularios para agregar/editar alumnos",
+      "🖊 Formularios para editar alumnos"
+    ]
+  },
+  {
+    "nombre": "Ariel Sergio Reyes 🧑🏻‍💻",
+    "descripcion": "Estudiante de la carrera Analista Programador Universitario con interés en el desarrollo frontend y la construcción de interfaces intuitivas. Participó activamente en el desarrollo del sistema de gestión de alumnos aplicando los conocimientos adquiridos en clase.",
+    "tareas": [
+        "🔍 Vista de detalle de alumno con rutas dinámicas",
+        "🗑 Eliminación lógica de alumnos con confirmación",
+        "🌐 Configuración de rutas y navegación general con React Router"
+    ]
+}
+]

@@ -35,7 +35,7 @@ const PapeleraAlumnos = () => {
                 Papelera de Alumnos
             </Heading>
             {alumnosBorrados.length === 0 ? (
-                <Text fontSize="xl" color={colors.gray}>
+                <Text fontSize="xl" color={colors.textColor}>
                     No hay alumnos en la papelera.
                 </Text>
             ) : (
