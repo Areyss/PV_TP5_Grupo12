@@ -1,3 +1,4 @@
+
 import { useAppColors } from "@/theme/colors"
 import { EmptyState, List, VStack, Text, Heading, Button } from "@chakra-ui/react"
 import { HiColorSwatch } from "react-icons/hi"
@@ -37,5 +38,4 @@ const ErrorPage = () =>{
         </EmptyState.Root>
     )
 }
-
 export default ErrorPage;
