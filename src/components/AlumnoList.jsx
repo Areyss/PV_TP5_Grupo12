@@ -10,6 +10,7 @@ import {
 } from "@chakra-ui/react";
 import { useColorModeValue } from "@/components/ui/color-mode"
 import DeleteButton from "./DeleteButton";
+import EditButton from "./EditButton";
 import { useAppColors } from "@/theme/colors";
 
 const ListAlumno = () => {
@@ -25,7 +26,7 @@ const ListAlumno = () => {
             <Heading
                 as="h2"
                 size="3xl"
-                color={useColorModeValue("#A0C878", "#720455")}
+                color={colors.primary}
                 mb={8}
             >
                 Bienvenidos al Sistema de Gestión de Alumnos
@@ -35,7 +36,7 @@ const ListAlumno = () => {
                     <Link to="/alumnos/papelera">
                         <Button
                             bg={colors.gray}
-                            _hover={{ bg: useColorModeValue("gray.600", "gray.700") }}
+                            _hover={{ bg: useColorModeValue("gray.600", "gray.800") }}
                             color="white"
                         >
                             Ver Papelera 🗑️
@@ -47,7 +48,7 @@ const ListAlumno = () => {
             {alumnosVisibles.length === 0 ? (
                 <Text
                     fontSize="xl"
-                    color={useColorModeValue("gray.700", "gray.300")}
+                    color={colors.textColor}
                 >
                     No hay alumnos cargados.
                 </Text>
@@ -59,8 +60,8 @@ const ListAlumno = () => {
                             p={6}
                             borderWidth="1px"
                             borderRadius="md"
-                            borderColor={useColorModeValue("gray.300", "gray.600")}
-                            bg={useColorModeValue("gray.100", "gray.700")}
+                            borderColor={colors.secondary}
+                            bg={colors.bgPrimary}
                             boxShadow="md"
                             _hover={{ transform: "scale(1.01)", shadow: "xl" }}
                         >
@@ -83,23 +84,14 @@ const ListAlumno = () => {
                             <Flex gap={3} wrap="wrap">
                                 <Link to={`/alumnos/${alumno.lu}`}>
                                     <Button
-                                        bg={useColorModeValue("green.600", "green.600")}
-                                        _hover={{ bg: useColorModeValue("green.700", "green.700") }}
-                                        color="white"
                                         size="sm"
+                                        variant="solid"
                                     >
                                         Ver detalles
                                     </Button>
                                 </Link>
                                 <Link to={`/alumnos/editar/${alumno.lu}`}>
-                                    <Button
-                                        size="sm"
-                                        bg="yellow.400"
-                                        _hover={{ bg: "yellow.600" }}
-                                        color="white"
-                                    >
-                                        Editar
-                                    </Button>
+                                    <EditButton lu={alumno.lu} />
                                 </Link>
                                 <DeleteButton alumno={alumno} setAlumnos={setAlumnos}/>
                             </Flex>

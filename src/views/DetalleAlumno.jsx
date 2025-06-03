@@ -15,6 +15,7 @@ import {
 import BackButton from '@/components/BackButton';
 import DeleteButton from '@/components/DeleteButton';
 import { useAppColors } from '@/theme/colors';
+import EditButton from '@/components/EditButton';
 
 const DetalleAlumno = () => {
   const { lu } = useParams();
@@ -85,9 +86,9 @@ const DetalleAlumno = () => {
           </Flex>
         </Card.Body>
         <Card.Footer justifyContent="flex-end">
-          <Button >Editar</Button>
-          <DeleteButton alumno={alumno} setAlumnos={setAlumnos}/>
           <BackButton />
+          <EditButton lu={alumno.lu} />
+          <DeleteButton alumno={alumno} setAlumnos={setAlumnos}/>          
         </Card.Footer>
       </Card.Root>
     </Center>
