@@ -8,6 +8,7 @@ export function useAppColors() {
     accent: useColorModeValue('#DDEB9D', '#125582'),
     textPrimary: useColorModeValue('white', '#E9ECEF'),
     textSecondary: useColorModeValue('#ADB5BD', '#ADB5BD'),
+    textColor: useColorModeValue("gray.700", "gray.200"),
     danger: useColorModeValue('#C43F4E', '#C43F4E'), 
     dangerHover: useColorModeValue('#A13340', '#C43F4E'),
     warning: useColorModeValue('yellow.400', 'yellow.300'),
